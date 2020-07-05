@@ -29,11 +29,11 @@
 
         // Рисуем рамку
         let drawBorder = function () {
-            ctx.fillStyle = "gray";
-            ctx.fillRect = (0, 0, width, blockSize);
-            ctx.fillRect = (0, height - blockSize, width, blockSize);
-            ctx.fillRect = (0, 0, blockSize, height);
-            ctx.fillRect = (width - blockSize, 0, blockSize, height);
+            ctx.fillStyle = "Gray";
+            ctx.fillRect(0, 0, width, blockSize);
+            ctx.fillRect(0, height - blockSize, width, blockSize);
+            ctx.fillRect(0, 0, blockSize, height);
+            ctx.fillRect(width - blockSize, 0, blockSize, height);
         };
 
         // Отображение счета пишем функцию drawScore
@@ -47,7 +47,7 @@
 
         // Конец игры
         let gameOver = function () {
-            clearInterval(intervalId);
+            // clearInterval(intervalId);
             ctx.font = "60px Courier";
             ctx.fillStyle = "Black";
             ctx.textAlign = "center";
@@ -55,7 +55,10 @@
             ctx.fillText("Конец игры", width / 2, height / 2);
         };
 
-        
+        // Увидеть рамку и счет
+        drawBorder();
+        drawScore();
+        gameOver();
     </script>
 </body>
 
