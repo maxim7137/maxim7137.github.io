@@ -55,7 +55,30 @@
             ctx.fillText("Конец игры", width / 2, height / 2);
         };
 
-                
+        // Создаем конструктор Block (который будет создавать объекты, представляющие собой отдельные ячейки)
+        let Block = function(col,row) {
+            this.col = col;
+            this.row = row;
+        };
+        // Добавляем к нему метод drawSquare
+        Block.prototype.drawSquare = function (color) {
+            let x = this.col*blockSize;
+            let y = this.row*blockSize;
+            ctx.fillStyle = color;
+            ctx.fillRect(x,y,blockSize,blockSize);
+        };
+        // Добавляем к нему метод drawCircle
+        Block.prototype.drawCircle = function (color) {
+            let centerX = this.col*blockSize+blockSize/2;
+            let centerY = this.row*blockSize+blockSize/2;
+            ctx.fillStyle = color;
+            circle(centerX,centerY,blockSize/2,true);
+        };
+        // Добавляем метод equal(для проверки не находятся ли два объекта в одной ячейки)
+        Block.prototype.equal = function (otherBlock) {
+            return this.col === otherBlock.col && this.row === otherBlock.row; 
+        };
+        
     </script>
 </body>
 
