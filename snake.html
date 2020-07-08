@@ -146,7 +146,7 @@
 
             if (newHead.equal(apple.position)) {
                 score++;
-                interval = interval - score;
+                interval -= 3;
                 apple.move();
             } else {
                 this.segments.pop();
