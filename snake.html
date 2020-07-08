@@ -113,9 +113,15 @@
 
         // Рисуем змейку (чтобы нарисовать змейку надо перебрать в цикле все объекты-ячейки из массива segments, вызывая метод drawSquare)
         Snake.prototype.draw = function () {
-            for (let i = 0; i < this.segments.length; i++) {
-                this.segments[i].drawSquare("Blue");
-
+            this.segments[0].drawSquare("Red");
+            let nextSegment = false;
+            for (let i = 1; i < this.segments.length; i++) {
+                if (nextSegment) {
+                    this.segments[i].drawSquare("Yellow");
+                } else {
+                    this.segments[i].drawSquare("Blue");
+                }
+                nextSegment = !nextSegment;              
             }
         };
 
@@ -173,7 +179,6 @@
             return wallCollision || selfCollision;
         };
 
-
         // Создаем метод setDirection
         Snake.prototype.setDirection = function (newDirection) {
             if (this.direction === "up" && newDirection === "down") {
@@ -226,7 +231,6 @@
         };
 
         inter();
-
 
         // Управление змейкой с клавиатуры
         // Обработчик события keydown
